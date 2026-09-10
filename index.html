@@ -1,0 +1,360 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Métodos Numéricos - Desafío Integrador</title>
+
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+
+<header>
+
+    <h1>Desafío Integrador</h1>
+
+    <h2>
+        Métodos Numéricos Aplicados al Área Financiera
+    </h2>
+
+</header>
+
+
+<main>
+
+
+    <!-- ===================================================== -->
+    <!-- PARTE I -->
+    <!-- ===================================================== -->
+
+    <section>
+
+        <h2>Parte I: Cálculo de errores</h2>
+
+        <p>
+            Se analizarán diferentes datos financieros registrados por
+            una pequeña empresa y se compararán con sus valores reales.
+        </p>
+
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>Dato financiero</th>
+                    <th>Valor real</th>
+                    <th>Valor aproximado</th>
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+                <tr>
+
+                    <td>
+                        Ingreso diario
+                    </td>
+
+                    <td>
+                        <input
+                            type="number"
+                            id="real1"
+                            value="12500">
+                    </td>
+
+                    <td>
+                        <input
+                            type="number"
+                            id="aprox1"
+                            value="12420">
+                    </td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>
+                        Costo operativo
+                    </td>
+
+                    <td>
+                        <input
+                            type="number"
+                            id="real2"
+                            value="7800">
+                    </td>
+
+                    <td>
+                        <input
+                            type="number"
+                            id="aprox2"
+                            value="7860">
+                    </td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>
+                        Ganancia estimada
+                    </td>
+
+                    <td>
+                        <input
+                            type="number"
+                            id="real3"
+                            value="4700">
+                    </td>
+
+                    <td>
+                        <input
+                            type="number"
+                            id="aprox3"
+                            value="4560">
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+
+        <button onclick="calcularErrores()">
+            Calcular errores
+        </button>
+
+
+        <div id="resultadoErrores" class="resultado"></div>
+
+    </section>
+
+
+
+    <!-- ===================================================== -->
+    <!-- PARTE II -->
+    <!-- ===================================================== -->
+
+    <section>
+
+        <h2>Parte II: Aproximación mediante Taylor</h2>
+
+        <p>
+            Se utilizará el polinomio de Taylor para estimar el capital
+            financiero de la empresa en un tiempo determinado.
+        </p>
+
+
+        <div class="parametros">
+
+
+            <div>
+
+                <label>
+                    Capital inicial:
+                </label>
+
+                <input
+                    type="number"
+                    id="capital"
+                    value="10000">
+
+            </div>
+
+
+            <div>
+
+                <label>
+                    Tasa:
+                </label>
+
+                <input
+                    type="number"
+                    id="tasa"
+                    value="0.05"
+                    step="0.01">
+
+            </div>
+
+
+            <div>
+
+                <label>
+                    t₀:
+                </label>
+
+                <input
+                    type="number"
+                    id="t0"
+                    value="1"
+                    step="0.1">
+
+            </div>
+
+
+            <div>
+
+                <label>
+                    t:
+                </label>
+
+                <input
+                    type="number"
+                    id="t"
+                    value="1.5"
+                    step="0.1">
+
+            </div>
+
+
+        </div>
+
+
+        <button onclick="calcularTaylor()">
+            Calcular Taylor
+        </button>
+
+
+        <div id="resultadoTaylor" class="resultado"></div>
+
+    </section>
+
+
+
+    <!-- ===================================================== -->
+    <!-- PARTE III -->
+    <!-- ===================================================== -->
+
+    <section>
+
+        <h2>
+            Parte III: Sistemas de ecuaciones lineales
+        </h2>
+
+
+        <p>
+            En esta parte se analiza la distribución de recursos
+            financieros de la empresa mediante sistemas de ecuaciones
+            lineales.
+        </p>
+
+
+        <div class="variables">
+
+            <p>
+                <strong>x₁:</strong>
+                cantidad de recursos destinados a operaciones.
+            </p>
+
+            <p>
+                <strong>x₂:</strong>
+                cantidad de recursos destinados a marketing y
+                comercialización.
+            </p>
+
+            <p>
+                <strong>x₃:</strong>
+                cantidad de recursos destinados a tecnología.
+            </p>
+
+            <p>
+                Los valores de las variables están expresados en
+                <strong>miles de bolivianos</strong>.
+            </p>
+
+        </div>
+
+
+        <h3>
+            Seleccione el caso
+        </h3>
+
+
+        <select
+            id="tipoCaso"
+            onchange="cambiarCaso()">
+
+            <option value="ideal">
+                Caso ideal
+            </option>
+
+            <option value="estres">
+                Caso bajo estrés
+            </option>
+
+            <option value="mal">
+                Caso mal condicionado
+            </option>
+
+        </select>
+
+
+        <!--
+            El contenido del caso seleccionado aparece aquí.
+            Cuando se cambia de caso, el contenido anterior
+            es reemplazado.
+        -->
+
+        <div id="contenidoCaso"></div>
+
+    </section>
+
+
+
+    <!-- ===================================================== -->
+    <!-- CONCLUSIÓN GENERAL -->
+    <!-- ===================================================== -->
+
+    <section>
+
+        <h2>
+            Conclusión general
+        </h2>
+
+
+        <p>
+            La conclusión general relaciona los resultados obtenidos
+            en las tres partes del ejercicio con el análisis financiero.
+        </p>
+
+
+        <button onclick="mostrarConclusion()">
+            Mostrar conclusión
+        </button>
+
+
+        <div
+            id="conclusionGeneral"
+            class="resultado">
+        </div>
+
+    </section>
+
+
+</main>
+
+
+
+<footer>
+
+    <p>
+        Desafío Integrador - Métodos Numéricos
+    </p>
+
+</footer>
+
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
